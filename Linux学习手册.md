@@ -2,15 +2,9 @@
 
 <center>Author:杨桂淼&copy;
 
-> 学会适应没有图形界面的操作
+> 学会适应没有图形界面的操作，在Linux的世界中，一切皆是目录
 
-> 在Linux的世界中，一切皆是目录
 
-B站：韩顺平老师-一周学会Linux
-
-ACWing：Linux基础课
-
-参考书籍：《Linux-鸟哥私房菜》
 
 ## 文件管理命令
 
@@ -205,11 +199,107 @@ Vim是一种强大的文本编辑器，通常在终端中使用。它有很多�
             (1) 找到正在打开该文件的程序，并退出
             (2) 直接删掉该swp文件即可
 
+## shell语法
+
+### 为什么要学习shell编程？
+
+1. Linux运维工程师进行服务器集群管理，需要编写shell程序集群管理
+2. 对于Java与Python程序员，是工作需要
+3. 对于大数据程序员，需要编写shell程序来管理集群
+
+### shell是什么？
+
+shell是一个命令行解释器，提供了用户向Linux内核发送请求以便运行程序的界面系统级程序，用户可以用shell来启动、挂起、停止甚至编写一些程序。 ![](pic/shell1.png)
+
+### 脚本格式要求
+
+1. 脚本以#!/bin/bash开头
+2. 脚本需要有可执行的权限
+
+### 脚本常用的可执行方式
+
+方式1：(输入脚本的相对路径和绝对路径)
+
+说明：首先要赋予helloworld.sh脚本+x权限，再执行脚本
+
+方式2：(sh+脚本)
+
+说明：不用赋予脚本+x权限，直接执行即可
+
+### 概论
+
+shell是我们通过`命令行`与`操作系统`沟通的语言。
+
+shell脚本可以直接在命令行中执行，也可以将一套逻辑组织成一个文件，方便**复用**。
+
+Linux中常见的shell脚本有很多种，常见的有：
+
+- Bourne Shell(`/usr/bin/sh`或`/bin/sh`)
+- Bourne Again Shell(`/bin/bash`)
+- C Shell(`/usr/bin/csh`)
+- K Shell(`/usr/bin/ksh`)
+- zsh
+- …
+
+Linux系统中一般默认使用bash，所以接下来讲解bash中的语法。文件开头需要写`#! /bin/bash`，指明`bash`为脚本解释器。
+
+#### 学习技巧
+
+不要死记硬背，遇到含糊不清的地方，可以在Terminal里实际运行一遍。
+
+#### 脚本示例
+
+新建一个test.sh文件，内容如下：
+
+```shell
+#! /bin/bash
+echo "Hello World!"
+```
+
+#### 运行方式
+
+作为可执行文件:(示例来源acwing)
+
+```sh
+acs@9e0ebfcd82d7:~$ chmod +x test.sh  # 使脚本具有可执行权限
+acs@9e0ebfcd82d7:~$ ./test.sh  # 当前路径下执行
+Hello World!  # 脚本输出
+acs@9e0ebfcd82d7:~$ /home/acs/test.sh  # 绝对路径下执行
+Hello World!  # 脚本输出
+acs@9e0ebfcd82d7:~$ ~/test.sh  # 家目录路径下执行
+Hello World!  # 脚本输出
+```
+
+用解释器执行
+
+```sh
+acs@9e0ebfcd82d7:~$ bash test.sh
+Hello World!  # 脚本输出
+```
+
+
+
+一个变量如果不存在了，那么剩下的就是一个空字符串
+
+
+
+
+
 
 
 
 
 ## 配置问题积累
+
+### 快捷指令
+
+top查看进程数量，q退出
+
+printf输出：
+
++右对齐
+
+-左对齐
 
 ### Ubuntu22.04 网络配置问题
 
@@ -230,3 +320,11 @@ Vim是一种强大的文本编辑器，通常在终端中使用。它有很多�
 2. .tar压缩包复制到桌面
 3. 文件夹启动终端，输入命令：`tar -zxvf *.tar.gz`
 4. 完成解压后进入解压文件运行./vmware-install.pl
+
+## 参考文献
+
+[1]bilibili-韩顺平老师一周学会Linux
+
+[2]ACWing-Linux基础课
+
+[3]《Linux-鸟哥私房菜》
