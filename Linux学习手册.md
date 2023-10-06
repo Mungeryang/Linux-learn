@@ -4,8 +4,6 @@
 
 > 学会适应没有图形界面的操作，在Linux的世界中，一切皆是目录
 
-
-
 ## 文件管理命令
 
 ### 文件系统
@@ -68,8 +66,6 @@
 - `mv`:剪切+粘贴+重命名。
 - `cat`:捕获该文件并查看文件中的内容。
 
-
-
 ## tmux与Vim
 
 Vim是一种强大的文本编辑器，通常在终端中使用。它有很多功能和快捷键，适用于多种任务，包括代码编辑、文本处理等。
@@ -102,16 +98,16 @@ Vim是一种强大的文本编辑器，通常在终端中使用。它有很多�
 #### 操作
 
 (1) tmux：新建一个session，其中包含一个window，window中包含一个pane，**pane里打开了一个shell对话框**。
-        (2) 按下Ctrl + a后手指松开，然后按%：将当前pane左右平分成两个pane。
-        (3) 按下Ctrl + a后手指松开，然后按"：将当前pane上下平分成两个pane。
+        (2) 按下`Ctrl + a`后手指松开，然后按`%`：将当前pane左右平分成两个pane。
+        (3) 按下`Ctrl + a`后手指松开，然后按`"`：将当前pane上下平分成两个pane。
         (4) Ctrl + d：关闭当前pane；如果当前window的所有pane均已关闭，则自动关闭window；如果当前session的所有window均已关闭，则自动关闭session。
         (5) 鼠标点击可以选pane。
-        (6) 按下ctrl + a后手指松开，然后按方向键：选择相邻的pane。
+        (6) 按下`ctrl + a`后手指松开，然后按`方向键`：选择相邻的pane。
         (7) 鼠标拖动pane之间的分割线，可以调整分割线的位置。
         (8) 按住ctrl + a的同时按方向键，可以调整pane之间分割线的位置。
-        (9) 按下**ctrl + a**后手指松开，然后按**z**：将当前pane全屏/取消全屏。
+        (9) 按下`ctrl + a`后手指松开，然后按`z`：将当前pane全屏/取消全屏。
         (10) 按下ctrl + a后手指松开，然后按d：挂起当前session。
-        (11) tmux a：打开之前挂起的session。
+        (11) `tmux a`：打开之前挂起的session。
         (12) 按下ctrl + a后手指松开，然后按s：选择其它session。
             方向键 —— 上：选择上一项 session/window/pane
             方向键 —— 下：选择下一项 session/window/pane
@@ -139,7 +135,7 @@ Vim是一种强大的文本编辑器，通常在终端中使用。它有很多�
 
 **编辑模式**
 
-在一般命令模式里按下i，会进入编辑模式。按下ESC会退出编辑模式，返回到一般命令模式。
+在一般命令模式里按下`i`，会进入`编辑模式`。按下`ESC`会`退出编辑模式`，返回到一般命令模式。
 
 **命令行模式**
 
@@ -155,7 +151,7 @@ Vim是一种强大的文本编辑器，通常在终端中使用。它有很多�
         (4) j 或 向下箭头：光标向下移动一个字符
         (5) k 或 向上箭头：光标向上移动一个字符
         (6) l 或 向右箭头：光标向右移动一个字符
-        (7) n<Space>：n表示数字，按下数字后再按空格，光标会向右移动这一行的n个字符
+        (7) ` n<Space> `：n表示数字，按下数字后再按空格，光标会向右移动这一行的n个字符
         (8) 0 或 功能键[Home]：光标移动到本行开头
         (9) $$ 或 功能键[End]：光标移动到本行末尾
         (10) G：光标移动到最后一行
@@ -170,20 +166,20 @@ Vim是一种强大的文本编辑器，通常在终端中使用。它有很多�
         (19) :1,$s/word1/word2/g：将全文的word1替换为word2
         (20) :1,$s/word1/word2/gc：将全文的word1替换为word2，且在替换前要求用户确认。
         (21) v：选中文本
-        (22) d：删除选中的文本
-        (23) dd: 删除当前行
+        (22) **d**：删除选中的文本
+        (23) **dd**: 删除当前行
         (24) y：复制选中的文本
-        (25) yy: 复制当前行
-        (26) p: 将复制的数据在光标的下一行/下一个位置粘贴
+        (25) **yy:** 复制当前行
+        (26) **p**: 将复制的数据在光标的下一行/下一个位置粘贴
         (27) u：撤销
         (28) Ctrl + r：取消撤销
         (29) 大于号 >：将选中的文本整体向右缩进一次
         (30) 小于号 <：将选中的文本整体向左缩进一次
         (31) :w 保存
-        (32) :w! 强制保存
+        (32) **:w!** 强制保存
         (33) :q 退出
         (34) :q! 强制退出
-        (35) :wq 保存并退出
+        (35) **:wq** 保存并退出
         (36) :set paste 设置成粘贴模式，取消代码自动缩进
         (37) :set nopaste 取消粘贴模式，开启代码自动缩进
         (38) :set nu 显示行号
@@ -277,13 +273,13 @@ acs@9e0ebfcd82d7:~$ bash test.sh
 Hello World!  # 脚本输出
 ```
 
-
-
 一个变量如果不存在了，那么剩下的就是一个空字符串
 
+## SSH 
 
+SSH 为 [Secure Shell](https://upimg.baike.so.com/doc/1803865-1907553.html) 的缩写，由 IETF 的[网络](https://upimg.baike.so.com/doc/4123457-4322878.html)工作小组(Network Working Group)所制定;SSH 为建立在应用层和传输层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。
 
-## ssh
+SSH(**远程连接工具**)连接原理：ssh服务是一个守护进程(demon)，系统后台监听客户端的连接，ssh服务端的进程名为sshd,负责实时监听客户端的请求(IP 22端口)，包括公共秘钥等交换等信息。
 
 ### 获取ssh教程配套的远程服务器账号的信息：
 
@@ -332,7 +328,7 @@ Host myserver2
 
 创建密钥：
 
-ssh-keygen
+`ssh-keygen`
 
 然后一直回车即可。
 
@@ -488,7 +484,314 @@ id_rsa.pub：公钥
 
 `git stash list`：查看栈中所有元素
 
+### 基本流程操作
 
+```php
+#本地初始化
+git init
+#推送
+git status 
+git add . 
+git commit -m "给自己看的备注信息"
+git push
+#克隆
+git clone git@git.acwing.com:xxx/XXX.git
+git@git.acwing.com:xxx/XXX.git-可以在GitHub/Gitee仓库中查询复制
+#回滚
+git reset --hard HEAD^	回滚一次
+#分支操作
+git checkout -b branch_name 创建新的分支并切换到该分支上
+git branch 查看所有分支
+git merage branch_name 将branch_name合并到总枝上
+```
+
+## thrift
+
+```shell
+使用thrift创建match_server端
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system$ cd src
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ thrift -r --gen cpp ../../thrift/match.thrift
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ ls               
+gen-cpp                                                                               
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ mv gen-cpp/ match_server
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ ls      
+match_server                                                                          
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ vim match_server/
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ cd match_server/ 
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src/match_server$ ls
+Match.cpp  Match.h  Match_server.skeleton.cpp  match_types.cpp  match_types.h
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src/match_server$ rm Match_server.skeleton.cpp
+```
+
+```shell
+使用thrift创建save_client端
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ thrift -r --gen cpp ../../thrift/save.thrift
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ ls
+gen-cpp  match_server
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ mv gen-cpp/ save_client
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ ls
+match_server  save_client
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ cd save_client/
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src/save_client$ ls
+Save.cpp  Save.h  Save_server.skeleton.cpp  save_types.h
+acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src/save_client$ rm Save_server.skeleton.cpp
+```
+
+main.cpp实现消息交互
+
+```cpp
+// This autogenerated skeleton file illustrates how to build a server.
+// You should copy it to another filename to avoid overwriting it.
+
+#include "match_server/Match.h"
+#include "save_client/Save.h"
+#include <thrift/concurrency/ThreadManager.h>
+#include <thrift/concurrency/ThreadFactory.h>
+#include <thrift/protocol/TBinaryProtocol.h>
+#include <thrift/server/TSimpleServer.h>
+#include <thrift/server/TThreadedServer.h>
+#include <thrift/transport/TServerSocket.h>
+#include <thrift/transport/TBufferTransports.h>
+#include <thrift/transport/TTransportUtils.h>
+#include <thrift/transport/TSocket.h>
+#include <thrift/TToString.h>
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <queue>
+#include <vector>
+#include <unistd.h>
+
+using namespace ::apache::thrift;
+using namespace ::apache::thrift::protocol;
+using namespace ::apache::thrift::transport;
+using namespace ::apache::thrift::server;
+
+using namespace ::match_service;
+using namespace ::save_service;
+using namespace std;
+
+
+struct Task
+{
+    User user;
+    string type;
+};
+
+struct MessageQueue
+{
+    queue<Task> q;
+    mutex m;
+    condition_variable cv;
+}message_queue;
+
+
+class Pool
+{
+    public:
+        void save_result(int a, int b)
+        {
+            printf("Match Result: %d %d\n", a, b);
+
+
+            std::shared_ptr<TTransport> socket(new TSocket("123.57.47.211", 9090));
+            std::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
+            std::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
+            SaveClient client(protocol);
+
+            try {
+                transport->open();
+
+                int res = client.save_data("acs_11760", "24516386", a, b);
+
+                if (!res) puts("success");
+                else puts("failed");
+
+                transport->close();
+            } catch (TException& tx) {
+                cout << "ERROR: " << tx.what() << endl;
+            }
+        }
+
+        bool check_match(uint32_t i, uint32_t j)
+        {
+            auto a = users[i], b = users[j];
+
+            int dt = abs(a.score - b.score);
+            int a_max_dif = wt[i] * 50;
+            int b_max_dif = wt[j] * 50;
+
+            return dt <= a_max_dif && dt <= b_max_dif;
+        }
+
+        void match()
+        {
+            for (uint32_t i = 0; i < wt.size(); i ++ )
+                wt[i] ++ ;   // 等待秒数 + 1
+
+            while (users.size() > 1)
+            {
+                bool flag = true;
+                for (uint32_t i = 0; i < users.size(); i ++ )
+                {
+                    for (uint32_t j = i + 1; j < users.size(); j ++ )
+                    {
+                        if (check_match(i, j))
+                        {
+                            auto a = users[i], b = users[j];
+                            users.erase(users.begin() + j);
+                            users.erase(users.begin() + i);
+                            wt.erase(wt.begin() + j);
+                            wt.erase(wt.begin() + i);
+                            save_result(a.id, b.id);
+                            flag = false;
+                            break;
+                        }
+                    }
+
+                    if (!flag) break;
+                }
+
+                if (flag) break;
+            }
+        }
+
+        void add(User user)
+        {
+            users.push_back(user);
+            wt.push_back(0);
+        }
+
+        void remove(User user)
+        {
+            for (uint32_t i = 0; i < users.size(); i ++ )
+                if (users[i].id == user.id)
+                {
+                    users.erase(users.begin() + i);
+                    wt.erase(wt.begin() + i);
+                    break;
+                }
+        }
+
+    private:
+        vector<User> users;
+        vector<int> wt;  // 等待时间, 单位：s
+}pool;
+
+
+class MatchHandler : virtual public MatchIf {
+    public:
+        MatchHandler() {
+            // Your initialization goes here
+        }
+
+        int32_t add_user(const User& user, const std::string& info) {
+            // Your implementation goes here
+            printf("add_user\n");
+
+            unique_lock<mutex> lck(message_queue.m);
+            message_queue.q.push({user, "add"});
+            message_queue.cv.notify_all();
+
+            return 0;
+        }
+
+        int32_t remove_user(const User& user, const std::string& info) {
+            // Your implementation goes here
+            printf("remove_user\n");
+
+            unique_lock<mutex> lck(message_queue.m);
+            message_queue.q.push({user, "remove"});
+            message_queue.cv.notify_all();
+
+            return 0;
+        }
+
+};
+
+class MatchCloneFactory : virtual public MatchIfFactory {
+    public:
+        ~MatchCloneFactory() override = default;
+        MatchIf* getHandler(const ::apache::thrift::TConnectionInfo& connInfo) override
+        {
+            std::shared_ptr<TSocket> sock = std::dynamic_pointer_cast<TSocket>(connInfo.transport);
+            /*cout << "Incoming connection\n";
+            cout << "\tSocketInfo: "  << sock->getSocketInfo() << "\n";
+            cout << "\tPeerHost: "    << sock->getPeerHost() << "\n";
+            cout << "\tPeerAddress: " << sock->getPeerAddress() << "\n";
+            cout << "\tPeerPort: "    << sock->getPeerPort() << "\n";*/
+            return new MatchHandler;
+        }
+        void releaseHandler(MatchIf* handler) override {
+            delete handler;
+        }
+};
+void consume_task()
+{
+    while (true)
+    {
+        unique_lock<mutex> lck(message_queue.m);
+        if (message_queue.q.empty())
+        {
+            // message_queue.cv.wait(lck);
+            lck.unlock();
+            pool.match();
+            sleep(1);
+        }
+        else
+        {
+            auto task = message_queue.q.front();
+            message_queue.q.pop();
+            lck.unlock();
+
+            if (task.type == "add") pool.add(task.user);
+            else if (task.type == "remove") pool.remove(task.user);
+        }
+    }
+}
+
+
+int main(int argc, char **argv) {
+    TThreadedServer server(
+            std::make_shared<MatchProcessorFactory>(std::make_shared<MatchCloneFactory>()),
+            std::make_shared<TServerSocket>(9090), //port
+            std::make_shared<TBufferedTransportFactory>(),
+            std::make_shared<TBinaryProtocolFactory>());
+
+
+    cout << "Start Match Server" << endl;
+
+    thread matching_thread(consume_task);
+
+    server.serve();
+    return 0;
+}
+
+```
+
+
+
+
+
+## 编译指令
+
+### Python
+
+Python没有编译环节，但是终端执行Python代码需要编译指令执行
+
+`Python3 main.py`
+
+### C/C++
+
+连接指令
+
+`g++ *.o -o main -lthrift -pthread`
+
+编译指令 
+
+`g++ -c main.cpp`
 
 ## 配置问题积累
 
