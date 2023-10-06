@@ -277,7 +277,7 @@ Hello World!  # 脚本输出
 
 ## SSH 
 
-SSH 为 [Secure Shell](https://upimg.baike.so.com/doc/1803865-1907553.html) 的缩写，由 IETF 的[网络](https://upimg.baike.so.com/doc/4123457-4322878.html)工作小组(Network Working Group)所制定;SSH 为建立在应用层和传输层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。
+SSH 为 **Secure Shell** 的缩写，由 IETF 的网络工作小组(Network Working Group)所制定;SSH 为建立在应用层和传输层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。
 
 SSH(**远程连接工具**)连接原理：ssh服务是一个守护进程(demon)，系统后台监听客户端的连接，ssh服务端的进程名为sshd,负责实时监听客户端的请求(IP 22端口)，包括公共秘钥等交换等信息。
 
@@ -509,32 +509,20 @@ git merage branch_name 将branch_name合并到总枝上
 
 ```shell
 使用thrift创建match_server端
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system$ cd src
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ thrift -r --gen cpp ../../thrift/match.thrift
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ ls               
-gen-cpp                                                                               
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ mv gen-cpp/ match_server
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ ls      
-match_server                                                                          
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ vim match_server/
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ cd match_server/ 
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src/match_server$ ls
-Match.cpp  Match.h  Match_server.skeleton.cpp  match_types.cpp  match_types.h
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src/match_server$ rm Match_server.skeleton.cpp
+acs@a3c38798087e:
+cd thrift_lesson/match_system/src$
+thrift -r --gen cpp ../../thrift/match.thrift
+mv gen-cpp/ match_server
+rm match_server/Match_server.skeleton.cpp
 ```
 
 ```shell
 使用thrift创建save_client端
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ thrift -r --gen cpp ../../thrift/save.thrift
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ ls
-gen-cpp  match_server
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ mv gen-cpp/ save_client
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ ls
-match_server  save_client
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src$ cd save_client/
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src/save_client$ ls
-Save.cpp  Save.h  Save_server.skeleton.cpp  save_types.h
-acs@a3c38798087e:~/homework/lesson_6/thrift_lesson/match_system/src/save_client$ rm Save_server.skeleton.cpp
+acs@a3c38798087e:
+cd thrift_lesson/match_system/src$
+thrift -r --gen cpp ../../thrift/save.thrift
+mv gen-cpp save_client
+rm match_server/Match_server.skeleton.cpp
 ```
 
 main.cpp实现消息交互
@@ -751,8 +739,6 @@ void consume_task()
         }
     }
 }
-
-
 int main(int argc, char **argv) {
     TThreadedServer server(
             std::make_shared<MatchProcessorFactory>(std::make_shared<MatchCloneFactory>()),
@@ -768,12 +754,7 @@ int main(int argc, char **argv) {
     server.serve();
     return 0;
 }
-
 ```
-
-
-
-
 
 ## 编译指令
 
@@ -793,6 +774,245 @@ Python没有编译环节，但是终端执行Python代码需要编译指令执�
 
 `g++ -c main.cpp`
 
+`g++ -c main.cpp match_server/*.cpp  save_client/*.cpp`
+
+将thrift预编译好的动态连接文件直接链接起来
+
+`g++ *.o -o -lthrift -pthread`
+
+### 启动服务
+
+`./main`
+
+## 进程、线程与信号量
+
+**进程**(process **一段程序的执行过程**)是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配的基本单位，是操作系统结构的基础。进程之间可以进行资源共享、消息传递，动态、独立、异步、并发。
+
+**线程**(thread)是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。线程不可以进行资源共享、消息传递。
+
+进程的三个基本状态：就绪态、运行态、阻塞态
+
+**多线程**是并行化的一种形式，或者是拆分工作以便同时进行处理。线程化的程序将工作拆分到多个软件线程，而不是将大量工作交给单个内核。这些线程由不同的 CPU 内核并行处理，以节省时间。
+
+一个进程可以有很多线程，每条线程并行执行不同的任务。
+
+信号量(Semaphore)可以保证两个或多个关键代码段不被并发调用。在进入一个关键代码段之前，线程必须获取一个信号量；一旦该关键代码段完成了，那么该线程必须释放信号量。它也可以实现任务之间同步或者临界资源的互斥访问，常用语协助一组相互竞争的任务来访问临界资源。
+
+信号量有两个**原子操作**：P操作和V操作，具体意义也要分信号量类型的情况
+
+·P() : Semaphore减1
+
+·V() :Semaphore加1
+
+## 管道、环境变量与常用命令
+
+### 管道
+
+#### 概念
+
+管道类似于文件重定向，可以将前一个命令的`stdout`重定向到下一个命令的`stdin`。
+
+#### 要点
+
+- 管道命令仅处理stdout，会忽略stderr。
+- 管道右边的命令必须能接受stdin。
+- 多个管道命令可以串联。
+
+#### 与文件重定向的区别
+
+- 文件重定向左边为命令，右边为文件。
+- 管道左右两边均为命令，左边有stdout，右边有stdin。
+
+### 环境变量
+
+#### 概念
+
+Linux系统中会用很多环境变量来记录配置信息。
+
+环境变量类似于全局变量，可以被各个进程访问到。我们可以通过修改环境变量来方便地修改系统配置。
+
+#### 查看
+
+```sh
+列出当前环境下的所有环境变量:
+env  # 显示当前用户的变量
+set  # 显示当前shell的变量，包括当前用户的变量;
+export  # 显示当前导出成用户变量的shell变量
+输出某个环境变量的值:
+echo $PATH
+```
+
+#### 修改
+
+环境变量的定义、修改、删除操作可以参考3. shell语法——变量这一节的内容。
+
+为了将对环境变量的修改应用到未来所有环境下，可以将修改命令放到~/.bashrc文件中。
+修改完~/.bashrc文件后，记得执行source ~/.bashrc，来将修改应用到当前的bash环境下。
+
+为何将修改命令放到~/.bashrc，就可以确保修改会影响未来所有的环境呢？
+
+每次启动bash，都会先执行~/.bashrc。
+
+每次ssh登陆远程服务器，都会启动一个bash命令行给我们。
+
+每次tmux新开一个pane，都会启动一个bash命令行给我们。
+
+所以未来所有新开的环境都会加载我们修改的内容。
+
+常见环境变量
+
+1. `HOME`：用户的家目录。
+2. `PATH`：可执行文件（命令）的存储路径。路径与路径之间用:分隔。当某个可执行文件同时出现在多个路径中时，会选择从左到右数第一个路径中的执行。下列所有存储路径的环境变量，均采用从左到右的优先顺序。
+3. `LD_LIBRARY_PATH`：用于指定动态链接库(.so文件)的路径，其内容是以冒号分隔的路径列表。
+4. `C_INCLUDE_PATH`：C语言的头文件路径，内容是以冒号分隔的路径列表。
+5. `CPLUS_INCLUDE_PATH`：CPP的头文件路径，内容是以冒号分隔的路径列表。
+6. `PYTHONPATH`：Python导入包的路径，内容是以冒号分隔的路径列表。
+7. `JAVA_HOME`：jdk的安装目录。
+8. `CLASSPATH`：存放Java导入类的路径，内容是以冒号分隔的路径列表。
+
+### 常用命令
+
+Linux命令非常多，本节讲解几个常用命令。其他命令依赖于大家根据实际操作环境，边用边查。
+
+#### 系统状况
+
+1. top：查看所有进程的信息（Linux的任务管理器）
+
+   - 打开后，输入M：按使用内存排序
+
+   - 打开后，输入P：按使用CPU排序
+
+   - 打开后，输入q：退出
+
+2. df -h：查看硬盘使用情况
+
+3. free -h：查看内存使用情况
+
+4. du -sh：查看当前目录占用的硬盘空间
+
+5. ps aux：查看所有进程
+
+6. kill -9 pid：杀死编号为pid的进程
+
+   - 传递某个具体的信号：kill -s SIGTERM pid
+
+7. netstat -nt：查看所有网络连接
+
+8. w：列出当前登陆的用户
+
+9. ping  www.baidu.com：检查是否连网
+
+#### 文件权限
+
+`chmod`：修改文件权限
+
+- chmod **+x** xxx：给xxx添加**可执行**权限
+
+- chmod **-x** xxx：**去掉**xxx的可执行权限
+
+- chmod **777** xxx：将xxx的权限改成777
+
+- chmod 777 xxx -R：递归修改整个文件夹的权限
+
+#### 文件检索
+
+- find /path/to/directory/ -name '*.py'：搜索某个文件路径下的所有*.py文件
+- grep xxx：从stdin中读入若干行数据，如果某行中包含xxx，则输出该行；否则忽略该行。
+- wc：统计行数、单词数、字节数
+- 既可以从stdin中直接读入内容；也可以在命令行参数中传入文件名列表；
+- wc -l：统计行数
+- wc -w：统计单词数
+- wc -c：统计字节数
+- tree：展示当前目录的文件结构
+- tree /path/to/directory/：展示某个目录的文件结构
+- tree -a：展示隐藏文件
+- ag xxx：搜索当前目录下的所有文件，检索xxx字符串
+- cut：分割一行内容
+- 从stdin中读入多行数据
+- echo $PATH | cut -d ':' -f 3,5：输出PATH用:分割后第3、5列数据
+- echo $ PATH | cut -d ':' -f 3-5：输出PATH用:分割后第3-5列数据
+- echo $PATH | cut -c 3,5：输出PATH的第3、5个字符
+- echo $PATH | cut -c 3-5：输出PATH的第3-5个字符
+- sort：将每行内容按字典序排序
+- 可以从stdin中读取多行数据
+- 可以从命令行参数中读取文件名列表
+- xargs：将stdin中的数据用空格或回车分割成命令行参数
+- find . -name '*.py' | xargs cat | wc -l：统计当前目录下所有python文件的总行数
+
+#### 查看文件内容
+
+1. more浏览文件内容
+
+   - 回车：下一行
+
+   - 空格：下一页
+
+2. b：上一页
+
+3. q：退出
+
+4. less与more类似，功能更全
+
+   - 回车：下一行
+
+   - y：上一行
+
+   - Page Down：下一页
+
+   - Page Up：上一页
+
+5. q：退出
+
+6. head -3 xxx：展示xxx的前3行内容
+
+   - 同时支持从stdin读入内容
+
+7. tail -3 xxx：展示xxx末尾3行内容
+
+   - 同时支持从stdin读入内容
+
+     
+
+   
+
+#### 用户相关
+
+history：展示当前用户的历史操作。内容存放在~/.bash_history中
+
+#### 工具
+
+`md5sum`：计算md5哈希值
+
+​	可以从stdin读入内容
+
+​	也可以在命令行参数中传入文件名列表；
+
+time command：统计command命令的执行时间
+
+ipython3：交互式python3环境。可以当做计算器，或者批量管理文件。
+
+​	!echo "Hello World"：!表示执行shell脚本
+
+watch -n 0.1 command：每0.1秒执行一次command命令
+
+tar：压缩文件
+
+​	`tar -zcvf xxx.tar.gz /path/to/file/*`：压缩
+
+​	`tar -zxvf xxx.tar.gz`：解压缩
+
+diff xxx yyy：查找文件xxx与yyy的不同点
+
+#### 安装软件
+
+`sudo command`：以root身份执行command命令
+
+`apt-get install xxx`：安装软件
+
+`pip install xxx --user --upgrade`：安装python包
+
+
+
 ## 配置问题积累
 
 ### 快捷指令
@@ -808,6 +1028,8 @@ printf输出：
 ### Ubuntu22.04 网络配置问题
 
 #### 重置网络得到恢复(VPN代理影响)
+
+
 
 #### 网上的配置教程(没有用到)
 
