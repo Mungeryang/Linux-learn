@@ -405,6 +405,12 @@ id_rsa.pub：公钥
 
 来源：AcWing
 
+### 退出登录命令
+
+`logout`:会由ssh连接的服务器退出到本地主机
+
+
+
 ## Git
 
 作者：yxc&copy;
@@ -914,6 +920,8 @@ Linux命令非常多，本节讲解几个常用命令。其他命令依赖于大
 
 - chmod 777 xxx -R：递归修改整个文件夹的权限
 
+d rwx | rwx | rwx–文件权限分为三组，第一组表示自己，第二组表示同组的人第三组表示其他人 
+
 #### 文件检索
 
 - find /path/to/directory/ -name '*.py'：搜索某个文件路径下的所有*.py文件
@@ -971,9 +979,6 @@ Linux命令非常多，本节讲解几个常用命令。其他命令依赖于大
 
    - 同时支持从stdin读入内容
 
-     
-
-   
 
 #### 用户相关
 
@@ -1011,6 +1016,12 @@ diff xxx yyy：查找文件xxx与yyy的不同点
 
 `pip install xxx --user --upgrade`：安装python包
 
+### 静态库与动态库
+
+
+
+
+
 
 
 ## 配置问题积累
@@ -1024,6 +1035,8 @@ printf输出：
 +右对齐
 
 -左对齐
+
+`echo $LD_LIARARY_PATH`在acwing终端进入到usr/
 
 ### Ubuntu22.04 网络配置问题
 
