@@ -1022,6 +1022,78 @@ diff xxx yyy：查找文件xxx与yyy的不同点
 
 
 
+## 云服务器与Docker配置
+
+云平台的作用:
+
+1. 存放我们的docker容器，让计算跑在云端。
+2. 获得公网IP地址，让每个人可以访问到我们的服务。
+
+任选一个云平台即可，推荐配置：
+
+- 1核 2GB（后期可以动态扩容，前期配置低一些没关系）
+- 网络带宽采用按量付费，最大带宽拉满即可（费用取决于用量，与最大带宽无关）
+- 系统版本：ubuntu 20.04 LTS（推荐用统一版本，避免后期出现配置不兼容的问题）
+
+### 创建工作用户acs并赋予sudo权限
+
+登录到新服务器。打开AC Terminal，然后：
+
+`ssh root@xxx.xxx.xxx.xxx`   # xxx.xxx.xxx.xxx替换成新服务器的公网IP
+
+创建新用户：
+
+`adduser mungeryang`  # 创建用户mungeryang
+
+`usermod -aG sudo mungeryang`  # 给用户mungeryang分配sudo权限
+
+### 配置免密登录
+
+```shell
+cd ~/.ssh/config
+vim config
+############
+进入config
+############
+Host myserver1
+    HostName IP地址或域名
+    User 用户名
+
+Host myserver2
+    HostName IP地址或域名
+    User 用户名
+############
+```
+
+`ssh-copy-id myserver`一键添加公钥。
+
+### 配置新服务器的工作环境
+
+`scp .bashrc .vimrc .tmux.conf server_name:`  # server_name需要换成自己配置的别名
+
+### 安装tmux和Docker
+
+登录自己的服务器，然后安装tmux：
+
+```sh
+sudo apt-get update
+sudo apt-get install tmux
+```
+
+然后在tmux中根据docker安装教程安装docker即可。
+
+### 将当前用户添加到docker用户组
+
+为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组(可以参考官方文档)：
+
+`sudo usermod -aG docker $USER`
+
+执行完此操作后，需要退出服务器，再重新登录回来，才可以省去sudo权限。
+
+
+
+
+
 
 
 ## 配置问题积累
@@ -1037,6 +1109,20 @@ printf输出：
 -左对齐
 
 `echo $LD_LIARARY_PATH`在acwing终端进入到usr/
+
+## 阿里云配置
+
+用户名：munger
+
+密码：Yanggm123@
+
+root权限下新创建的用户
+
+name：mungeryang
+
+pwd：yanggm123
+
+
 
 ### Ubuntu22.04 网络配置问题
 
@@ -1066,4 +1152,4 @@ printf输出：
 
 [2]ACWing-Linux基础课
 
-[3]《Linux-鸟哥私房菜》
+> [3]《Linux-鸟哥私房菜》
