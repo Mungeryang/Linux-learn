@@ -275,11 +275,9 @@ Hello World!  # 脚本输出
 
 一个变量如果不存在了，那么剩下的就是一个空字符串
 
-## SSH 
+## SSH
 
-SSH 为 **Secure Shell** 的缩写，由 IETF 的网络工作小组(Network Working Group)所制定;SSH 为建立在应用层和传输层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。
-
-SSH(**远程连接工具**)连接原理：ssh服务是一个守护进程(demon)，系统后台监听客户端的连接，ssh服务端的进程名为sshd,负责实时监听客户端的请求(IP 22端口)，包括公共秘钥等交换等信息。
+The **Secure Shell Protocol** (**SSH**) is a cryptographic network protocol for operating network services securely over an unsecured network. Its most notable applications are remote login and command-line execution.[wi-ki]
 
 ### 获取ssh教程配套的远程服务器账号的信息：
 
@@ -1018,9 +1016,15 @@ diff xxx yyy：查找文件xxx与yyy的不同点
 
 ### 静态库与动态库
 
+静态库：库程序是直接注入目标程序的，不分彼此，库文件通常以.a结尾
 
+动态库：库程序是在运行目标程序时（中）加载的，库文件通常以.so结尾
 
+静态库的代码在**编译的过程中**已经载入到可执行文件中，所以最后生成的可执行文件相对较大。
 
+动态库的代码在可执行程序**运行时**才载入内存，在编译过程中仅简单的引用，所以最后生成的可执行文件相对较小。
+
+静态库和动态库的最大区别是，静态库链接的时候把库直接加载到程序中,而动态库链接的时候，它只是保留接口，将动态库与程序代码独立，这样就可以提高代码的可复用度和降低程序的耦合度。
 
 ## 云服务器与Docker配置
 
@@ -1090,11 +1094,101 @@ sudo apt-get install tmux
 
 执行完此操作后，需要退出服务器，再重新登录回来，才可以省去sudo权限。
 
+## 毛坯服务器搭建流程
 
+学完Linux基础课后，应该熟练掌握如下技术流程：
 
+**使用AC Terminal终端的docker镜像在租赁的服务器上搭建属于自己的docker镜像(images)**
 
+<img src="pic/cloud.png" alt="s" style="zoom:60%;" />
 
+【aliyun为例】
 
+阿里云官网租赁1核2GB的服务器(具体租赁流程不具体展开),获取公网ip地址
+
+打开AC Terminal终端，使用ssh登录远程服务器：
+
+```sh
+#阿里云与华为云远程登录方式
+ssh root@xxx.xxx.xxx.xxx   # xxx.xxx.xxx.xxx替换成新服务器的公网IP
+#腾讯云比较独特
+ssh ubuntu@xxx.xxx.xxx.xxx # xxx.xxx.xxx.xxx替换成新服务器的公网IP
+```
+
+在新服务器上添加一个新用户
+
+```sh
+adduser munger #回车后连续两次输入密码
+usermod -aG sudo acs  # 给用户acs分配sudo权限
+
+```
+
+返回AC Terminal终端，为租赁的服务器创建免密登录
+
+```sh
+logout
+cd ~
+vim .ssh/cimfig
+```
+
+添加阿里云信息
+
+```shell
+Host myaliyun
+    HostName xxx.xxx.xxx.xxx
+    User munger
+```
+
+设置免密登录
+
+```sh
+ssh-copy-id munger #回车确认
+```
+
+至此，阿里云平台服务器设置完成。接下来使用将本地docker镜像传到阿里云上：
+
+```shell
+scp /var/lib/acwing/docker/images/docker_lesson_1_0.tar myaliyun:  # 将镜像上传到自己租的云端服务器
+ssh myaliyun  # 登录自己的云端服务器
+```
+
+创建安装与创建过程：
+
+```shell
+docker load -i docker_lesson_1_0.tar  # 将镜像加载到本地
+docker run -p 20000:22 --name mydocker -itd docker_lesson:1.0  # 创建并运行docker_lesson:1.0镜像
+
+docker attach mydocker  # 进入创建的docker容器
+passwd  # 设置root密码
+
+adduser miao #回车后连续两次输入密码
+usermod -aG sudo acs  # 给用户acs分配sudo权限
+
+```
+
+去云平台控制台中修改安全组配置，放行端口20000
+
+```shell
+Host mydocker
+    HostName xxx.xxx.xxx.xxx
+    User miao
+    Port 20000
+```
+
+设置免密登录：
+
+```shell
+ssh-copy-id munger #回车确认
+```
+
+登录自己的服务器，然后安装tmux：
+
+```shell
+sudo apt-get update
+sudo apt-get install tmux
+
+scp .bashrc .vimrc .tmux.conf server_name:  # server_name需要换成自己配置的别名
+```
 
 ## 配置问题积累
 
@@ -1110,25 +1204,9 @@ printf输出：
 
 `echo $LD_LIARARY_PATH`在acwing终端进入到usr/
 
-## 阿里云配置
-
-用户名：munger
-
-密码：Yanggm123@
-
-root权限下新创建的用户
-
-name：mungeryang
-
-pwd：yanggm123
-
-
-
 ### Ubuntu22.04 网络配置问题
 
 #### 重置网络得到恢复(VPN代理影响)
-
-
 
 #### 网上的配置教程(没有用到)
 
@@ -1152,4 +1230,4 @@ pwd：yanggm123
 
 [2]ACWing-Linux基础课
 
-> [3]《Linux-鸟哥私房菜》
+[3]《Linux-鸟哥私房菜》
