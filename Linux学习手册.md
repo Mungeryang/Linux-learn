@@ -1192,7 +1192,7 @@ adduser miao #回车后连续两次输入密码
 usermod -aG sudo acs  # 给用户acs分配sudo权限
 ```
 
-`docker attach` 后，按住`Ctrl + P`，然后按下`Q`键，就可以**退出容器**的会话，但是容器会继续在后台运行。可以使用`docker ps`命令查看容器是否在运行中。
+`docker attach` 后，按住`Ctrl + P`，然后按下`Ctrl + Q`键，就可以**退出容器**的会话，但是容器会继续在后台运行。可以使用`docker ps`命令查看容器是否在运行中。
 
 ```c
 //docker stop
