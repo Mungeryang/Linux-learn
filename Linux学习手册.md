@@ -1128,7 +1128,7 @@ usermod -aG sudo acs  # 给用户acs分配sudo权限
 ```sh
 logout
 cd ~
-vim .ssh/cimfig
+vim .ssh/config
 ```
 
 添加阿里云信息
@@ -1142,7 +1142,7 @@ Host myaliyun
 设置免密登录
 
 ```sh
-ssh-copy-id munger #回车确认
+ssh-copy-id myaliyun #回车确认
 ```
 
 至此，阿里云平台服务器设置完成。接下来使用将本地docker镜像传到阿里云上：
@@ -1150,6 +1150,33 @@ ssh-copy-id munger #回车确认
 ```shell
 scp /var/lib/acwing/docker/images/docker_lesson_1_0.tar myaliyun:  # 将镜像上传到自己租的云端服务器
 ssh myaliyun  # 登录自己的云端服务器
+```
+
+初次租赁服务器后进行docker安装
+
+Set up Docker's `apt` repository:
+
+```shell
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+Install the Docker packages:
+
+```shell
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+$ sudo docker run hello-world
 ```
 
 创建安装与创建过程：
@@ -1163,10 +1190,28 @@ passwd  # 设置root密码
 
 adduser miao #回车后连续两次输入密码
 usermod -aG sudo acs  # 给用户acs分配sudo权限
-
 ```
 
-去云平台控制台中修改安全组配置，放行端口20000
+`docker attach` 后，按住`Ctrl + P`，然后按下`Q`键，就可以**退出容器**的会话，但是容器会继续在后台运行。可以使用`docker ps`命令查看容器是否在运行中。
+
+```c
+//docker stop
+//如果需要停止容器，则可以使用docker stop命令来停止容器。但是这样会导致容器的状态变为exited，需要再次启动容器才能进入到容器内部。
+//docker kill
+//如果容器无法正常停止，则可以使用docker kill命令来强制停止容器。但是同样会导致容器的状态变为exited，需要再次启动容器才能进入到容器内部
+//exit
+//在容器内部，执行exit命令可以直接退出容器。但是同样需要再次启动容器才能进入到容器内部。
+```
+
+去云平台控制台中修改安全组配置，放行端口20000.
+
+退出容器后如何重新进入？
+
+```shell
+$ docker ps
+$ docker start mydocker
+$ docker exec -it mydocker /bin/bash
+```
 
 ```shell
 Host mydocker
@@ -1178,7 +1223,7 @@ Host mydocker
 设置免密登录：
 
 ```shell
-ssh-copy-id munger #回车确认
+ssh-copy-id mydocker #回车确认
 ```
 
 登录自己的服务器，然后安装tmux：
