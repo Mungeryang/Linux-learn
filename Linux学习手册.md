@@ -3,7 +3,10 @@
 <img src="../../360Downloads/ucas_logo_name.png" style="zoom:66%;" />
 
 <center>Author:杨桂淼&copy;
-<center>Address:中国科学院大学/中国科学院 信息工程研究所 UCS_IIE
+<center>School:中国科学院大学/中国科学院 信息工程研究所 UCS_IIE
+<center>Address:北京市海淀区树村路19号
+<center>Tel:15803173971 | E-mail:jianghuxiaomiao666@163.com
+<center>计算，为了无法计算的价值！
 <center>中国的云计算值得你去骄傲！
 
 <img src="../../360Downloads/Linux.png" style="zoom:33%;" />
@@ -46,6 +49,8 @@
 特殊形式：ls.. 返回上层目录 		ls. 当前目录	ls ~/表示切换到家目录
 
 区分路径的开头，**家目录**(/home/mungeryang)与**根目录**(/root)也要区分好！
+
+/“是根目录，”~“是家目录。Linux存储是以挂载的方式，相当于是树状的，源头就是”/“，也就是根目录。而每个用户都有”家“目录，也就是用户的个人目录，比如root用户的”家“目录就是/root,普通用户munger的家目录就是/home/munger.可以看到。
 
 ### 文件管理常用指令
 
@@ -1320,13 +1325,42 @@ printf输出：
 
 <img src="../../360Downloads/ucas_logo_name.png" style="zoom:66%;" />
 
-<center>Author:杨桂淼&copy;
-<center>Address:中国科学院大学/中国科学院 信息工程研究所 UCS_IIE
+<center>Author:Munger·yang-杨桂淼&copy;
+<center>School:中国科学院大学/中国科学院 信息工程研究所 UCS_IIE
+<center>Address:北京市海淀区树村路19号
+<center>Tel:15803173971 | E-mail:jianghuxiaomiao666@163.com
 <center>计算，为了无法计算的价值！
 
+<img src="../../360Downloads/Linux.png" style="zoom:33%;" />
 
 
-> 计算，就像是打一口井。要支撑一个城市的话，井是肯定不够用的。这个时候，自来水管就是互联网，把互联网后面接着的计算能力为你所用，就是云计算.					
+
+:person_with_blond_hair::计算机为什么叫计算机？计算的是什么？如何理解这个计算的含义？
+
+:robot:GPT-4:计算机之所以被称为计算机，是因为其最初的目的是执行**数学运算**和**计算**任务。"计算"这个词源于拉丁语 "computare"，意为计算、推算。因此，计算机最初是设计用于执行复杂的**数学运算**，以解决科学、工程和商业领域的问题。
+
+在现代社会中，计算机的功能已经远远超出了最初的数学计算范围，它们还能处理`文字、图形、音频、视频`等各种类型的数据。计算机能够执行的计算涉及到数据的`处理、存储、检索和传输`，以及对这些数据进行`逻辑判断`和`控制流程`。
+
+对于"计算"的含义，可以理解为对`信息进行处理`的过程。这个过程可以包括各种`数学运算`，`逻辑推理`，`数据操作`等。计算机以**二进制形式**（0和1）处理信息，通过执行一系列的**指令**和**算法**来完成特定的任务。因此，"计算"在计算机领域中的含义已经演变成了更为**广义的信息处理**，涵盖了各种形式的数据处理和操作。
+
+
+
+## 云与云计算
+
+> 除了5G，中国的云计算更值得你去骄傲！
+
+
+> 计算，就像是打一口井。要支撑一个城市的话，井是肯定不够用的。这个时候，自来水管就是互联网，把互联网后面接着的计算能力为你所用，就是云计算。
+>
+> 工业经济是电力经济，数字经济是算力经济，算力是衡量经济发展的新尺度。今天的数字化就相当于百年前的电气化。就如同百年前的电力，算力会成为国家的核心基础设施，再次激发创新能力。而今天提供算力最好的方式就是通过云计算。
+>
+> 云计算正在重新定义今天的世界。
+>
+> - Internet as infrastructure-互联网成了基础设施
+>
+> - Data center is the computer-数据中心成了一台计算机
+>
+> - Computing as utility-计算成了公共服务
 >
 > ​																						—–中国工程院院士、阿里云创始人	王坚
 
@@ -1334,59 +1368,316 @@ printf输出：
 
 
 
+> Wi-ki:A **data center**  is a building, a dedicated space within a building, or a group of buildings used to house computer systems and associated components, such as telecommunications and storage systems.
+>
+> Baidu:数据中心是全球协作的特定设备网络，用来在因特网络基础设施上传递、加速、展示、计算、存储数据信息。
+
+<img src="pic/DC.pig.webp" style="zoom:20%;" />
+
 企业或个人利用互联网实现资源的利用。向云服务商租赁计算服务，通过网络连接即可使用，按需付费。对于云服务，通常用户只需按需付费即可，需要多少就支付多少，从而降低运营成本，使基础设施更加有效的运行，并根据业务需求的变化调整对服务的使用。
 
+数字化时代，互联网已经成为基础设施。云计算使得**数据中心**能够像一台计算机一样去工作。通过互联网将算力以按需使用、按量付费的形式提供给用户，包括：**计算、存储、网络、数据库、大数据计算、大模型**等算力形态。
+
+云计算两个最明显的优势是**弹性**和**敏捷**：弹性能让您按需使用各类服务，灵活扩缩容，从容应对业务流量的不确定性。敏捷能让您快速部署应用而无需购买任何物理资源即可完成业务创新。
 
 
-## 云计算的类型
+
+### 什么是云？
+
+**云**是指通过**互联网**使用信息系统及与之相关的服务器和网络等IT资产的一种形式。
+
+云服务中的云与现实中的云毫无关系，只是因为习惯上人们经常使用`云的形状`图标来简单**表示互联网**，因此将这类互联网上的服务称为云服务。
+
+<img src="pic/c2.jpg" style="zoom:53%;" />
+
+
+
+### 云计算的类型
 
 共有云、私有云、混合云
 
 - 公有云
 
-公有云是作为第三方云厂商所拥有和运营的，他们通过Internet提供计算资源，在公有云中，所有的硬件和软件和其他的一些基础性结构都由云提供商所有和运营。
+公有云是作为第三方云厂商所拥有和运营的，他们通过Internet提供计算资源，在公有云中，所有的硬件和软件和其他的一些基础性结构都由云提供商所有和运营。是一种通过互联网的方式提供给公众计算资源的云计算环境。它是由第三方公司拥有和运营的，用户可以通过互联网访问这些服务，无需购买物理基础设施，同时可以轻松扩展，并且用户只需为所使用的资源付费。
 
 - 私有云
 
-
-
-
-
-
-
-
+与公有云是相对的，公司为自己创造的云服务，或者在数据中心内构建的公司自己内部使用的云空间被称为私有云。是仅提供给单个或某类组织构建的云计算环境，采用和公共云相同的技术架构，可以与公共云互联，实现云上的弹性和敏捷。不同的是，专有云是独立部署的形式，它可以在组织内部网络中部署，也可以由第三方提供商托管部署。
 
 - 混合云
 
+同时使用公有云与私有云，允许公司将敏感数据保存在私有云中，同时使用公有云来允许APP。
 
 
 
+### 云服务的分类
+
+- IaaS-Infrastructure as a Service
+
+基础设施及服务：提供各类基础设施类能力的服务类别，包括计算、存储、网络等资源服务能力。您无需购买和部署服务器、存储、网络设备等硬件基础设施就可以灵活部署自己的业务系统。
+
+- PaaS-Platform as a Service
+
+平台及服务：提供应用程序所需要的硬件和软件部署平台的服务类别。您无需管理和维护复杂的底层基础架构和操作系统，只需要关注自己的业务逻辑，加速开发效率。
+
+- SaaS-Software as a Service
+
+软件及服务：提供软件的服务类别，包括协同软件、客户关系管理、企业资源计划、人力资源系统等。您无需经过传统的研发流程，而是通过互联网即可使用软件服务，节约了管理基础设施和研发软件的工作。
+
+<img src="pic/c1.jpg" style="zoom:55%;" />
+
+- MaaS-Model as a Service
+
+模型即服务：把 AI 模型当作生产的重要元素，从模型预训练到二次调优，最后到模型部署，围绕模型的生命周期来提供相应的服务。您可以通过低成本的方式访问、使用、集成模型，提升您的业务智能化能力。
 
 
 
+## yum软件安装
+
+yum在Linux系统中类似于Windows系统中的`360软件管家`,他是一个软件集成仓库，提供用户需要下载的软件。
+
+Linux系统中yun软件管理仓库：
+
+<img src="pic/c4.jpg" style="zoom:50%;" />
 
 
 
+Windows系统下的软件管理工具对比：
+
+<img src="pic/c3.png" style="zoom:35%;" />
+
+Windows下的软件包格式是：xx.exe
+
+macOS下的软件包格式是：xxx.dmg
+
+Linux系统下软件包格式是：xx.rpm
 
 
 
+### 备份yum.repos.d文件内容
+
+```shell
+[root@localhost etc]# cd yum.repos.d/
+[root@localhost yum.repos.d]# ls
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo    CentOS-fasttrack.repo  CentOS-Sources.repo
+[root@localhost yum.repos.d]# mkdir repo-bak
+[root@localhost yum.repos.d]# ls
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo    CentOS-fasttrack.repo  CentOS-Sources.repo  repo-bak
+[root@localhost yum.repos.d]# mv ./*  ./repo-bak/
+mv: 无法将目录"./repo-bak" 移动至自身的子目录"./repo-bak/repo-bak" 下
+[root@localhost yum.repos.d]# ls
+repo-bak
+```
 
 
 
+### 配置yum源
+
+- 配置好yum源(软件仓库)
+- 通过yum命令，直接安装我们需要的软件
+
+```shell
+[root@localhost yum.repos.d]# wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+--2023-12-12 17:17:53--  https://mirrors.aliyun.com/repo/Centos-7.repo
+正在解析主机 mirrors.aliyun.com (mirrors.aliyun.com)... 111.31.102.242, 111.31.102.243, 111.31.102.239, ...
+正在连接 mirrors.aliyun.com (mirrors.aliyun.com)|111.31.102.242|:443... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：2523 (2.5K) [application/octet-stream]
+正在保存至: “/etc/yum.repos.d/CentOS-Base.repo”
+
+100%[======================================>] 2,523       --.-K/s 用时 0.001s  
+
+2023-12-12 17:17:53 (1.61 MB/s) - 已保存 “/etc/yum.repos.d/CentOS-Base.repo” [2523/2523])
+
+```
+
+### 配置epel
+
+```shell
+[root@localhost yum.repos.d]# wget -O /etc/yum.repos.d/epel.repo https://mirrors.aliyun.com/repo/epel-7.repo
+--2023-12-12 17:18:56--  https://mirrors.aliyun.com/repo/epel-7.repo
+正在解析主机 mirrors.aliyun.com (mirrors.aliyun.com)... 111.31.102.237, 111.31.102.241, 111.31.102.242, ...
+正在连接 mirrors.aliyun.com (mirrors.aliyun.com)|111.31.102.237|:443... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：664 [application/octet-stream]
+正在保存至: “/etc/yum.repos.d/epel.repo”
+
+100%[======================================>] 664         --.-K/s 用时 0s      
+
+2023-12-12 17:18:56 (358 MB/s) - 已保存 “/etc/yum.repos.d/epel.repo” [664/664])
+```
 
 
 
+### yum安装Nginx
+
+```shell
+[root@localhost yum.repos.d]# yum install nginx -y
+已加载插件：fastestmirror, langpacks
+epel                                                     | 4.7 kB     00:00     
+(1/3): epel/x86_64/group_gz                                |  99 kB   00:00     
+(2/3): epel/x86_64/updateinfo                              | 1.0 MB   00:02
+·······
+已安装:
+  nginx.x86_64 1:1.20.1-10.el7                                                    作为依赖被安装:
+  nginx-filesystem.noarch 1:1.20.1-10.el7 openssl11-libs.x86_64 1:1.1.1k-6.el7   完毕！
+```
 
 
 
+### 启动nginx并查看端口
+
+```shell
+[root@localhost yum.repos.d]# systemctl start nginx
+[root@localhost yum.repos.d]# ps -ef
+[root@localhost yum.repos.d]# ps -ef | grep "nginx"
+root       2980      1  0 17:20 ?        00:00:00 nginx: master process /usr/sbin/nginx
+nginx      2981   2980  0 17:20 ?        00:00:00 nginx: worker process
+nginx      2982   2980  0 17:20 ?        00:00:00 nginx: worker process
+nginx      2983   2980  0 17:20 ?        00:00:00 nginx: worker process
+nginx      2984   2980  0 17:20 ?        00:00:00 nginx: worker process
+root       3001   2717  0 17:22 pts/0    00:00:00 grep --color=auto nginx
+[root@localhost yum.repos.d]# netstat -tunlp | grep "nginx"
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      2980/nginx: master  
+tcp6       0      0 :::80                   :::*                    LISTEN      2980/nginx: master
+```
 
 
 
+### 启动Nginx后无法访问主页的解决办法
+
+检查Nginx是否启动成功：
+
+```shell
+[root@localhost yum.repos.d]# nginx -t
+#此状态代表成功
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+```
+
+检查防火墙状态：
+
+```shell
+[root@localhost yum.repos.d]# systemctl status firewalld
+#开启状态
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)
+   Active: active (running) since 二 2023-12-12 17:11:43 CST; 30min ago
+     Docs: man:firewalld(1)
+#关闭状态
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor preset: enabled)
+   Active: inactive (dead)
+```
 
 
 
+检查端口开放情况：
+
+```shell
+[root@localhost yum.repos.d]# netstat -lnt | grep "80"
+#80端口已经开放
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN     
+tcp6       0      0 :::80                   :::*                    LISTEN 
+
+```
+
+关闭防火墙：
+
+```shell
+[root@localhost yum.repos.d]# systemctl stop firewalld
+```
+
+检查自己的主机ip地址：
+
+```shell
+[root@localhost ~]# ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens32: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:0c:29:39:61:d9 brd ff:ff:ff:ff:ff:ff
+    inet xxx.xx.xx.xxx/24 brd xxx.xx.xx.xxx scope global dynamic ens32
+       valid_lft 1083sec preferred_lft 1083sec
+    inet6 fe80::19a0:59b6:2a9c:c618/64 scope link 
+       valid_lft forever preferred_lft forever
+3: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN qlen 1000
+    link/ether 52:54:00:71:3d:c8 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+       valid_lft forever preferred_lft forever
+4: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast master virbr0 state DOWN qlen 1000
+    link/ether 52:54:00:71:3d:c8 brd ff:ff:ff:ff:ff:ff
+```
+
+xxx.xx.xx.xxx即为自己的主机IP地址，浏览器输入xxx.xx.xx.xxx:80，即可登录到Nginx页面。
 
 
+
+## Nginx案例-Linux上运行淘宝网
+
+启动/关闭Nginx：
+
+```shell
+#启动
+[root@localhost yum.repos.d]# systemctl start nginx
+#关闭
+[root@localhost yum.repos.d]# systemctl stop nginx
+```
+
+启动/关闭防火墙：
+
+```shell
+#启动
+[root@localhost yum.repos.d]# systemctl start firewalld
+#关闭
+[root@localhost yum.repos.d]# systemctl stop firewalld
+```
+
+
+
+### 查看淘宝网web服务器信息
+
+`curl`指令获取网页源代码与服务器信息。
+
+```shell
+#返回网页全部html源代码
+[root@localhost]# curl https://www.taobao.com
+#返回网页服务器信息
+[root@localhost]# curl -I https://www.taobao.com
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html; charset=utf-8
+```
+
+
+
+Tengine 是由淘宝网发起的 Web 服务器项目。它在 Nginx 的基础上，针对大访问量网站的需求，添加了很多高级功能和特性。Tengine 的性能和稳定性已经在大型的网站如淘宝网，天猫商城等得到了很好的检验。它的最终目标是打造一个高效、稳定、安全、易用的 Web 平台。
+
+
+
+### 修改Nginx首页
+
+```shell
+#查看Nginx的安装路径信息
+[mungeryang@localhost ~]$ rpm -ql nginx | grep "index" 
+/usr/share/nginx/html/index.html
+```
+
+
+
+### 修改html源代码展示页面
+
+```shell
+[root@localhost]# yum install vim -y
+[root@localhost]# vim /usr/share/nginx/html/index.html
+#修改网页源代码即可改变网页
+```
 
 
 
